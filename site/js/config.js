@@ -4,7 +4,7 @@
 
 const CONFIG = {
   RAD_BASE_URL: 'https://raddigital.onrender.com',
-  WORKER_BASE_URL: 'https://hub-atalhos-worker.SEU-SUBDOMINIO.workers.dev', // TODO: trocar após deploy do Worker
+  WORKER_BASE_URL: 'https://hub-atalhos-worker.andre-luiz.workers.dev',
   TOKEN_STORAGE_KEY: 'portal_acessos_token',
   LAYOUT_STORAGE_KEY: 'portal_acessos_layout',
 };
