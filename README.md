@@ -65,4 +65,5 @@ Estas rotas ainda **não existem** no RAD e precisam ser implementadas lá
 usadas como estão.
 <!-- deploy inicial do worker -->
 Trigger primeiro deploy do worker
-
+<!-- deploy inicial do worker -->
+correção do formato wrangler.toml
