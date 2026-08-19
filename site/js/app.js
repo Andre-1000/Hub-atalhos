@@ -8,7 +8,7 @@ let versaoAtual = null;
 function faviconUrl(url) {
   try {
     const dominio = new URL(url).hostname;
-    return `https://www.google.com/s2/favicons?sz=64&domain=${dominio}`;
+    return `https://icons.duckduckgo.com/ip3/${dominio}.ico`;
   } catch (e) {
     return '';
   }
