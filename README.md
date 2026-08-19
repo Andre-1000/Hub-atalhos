@@ -63,3 +63,6 @@ Estas rotas ainda **não existem** no RAD e precisam ser implementadas lá
 
 `POST /usuarios/login/` e `GET /usuarios/validar-token/` **já existem** e são
 usadas como estão.
+<!-- deploy inicial do worker -->
+Trigger primeiro deploy do worker
+
