@@ -1,1 +1,1 @@
-``` name = "hub-atalhos-worker" main = "index.js" compatibility_date = "2026-08-19" [[kv_namespaces]] binding = "ATALHOS_KV" id = "131ca2da95c446d7a43067c8aa03429f" ```
+name = "hub-atalhos-worker" main = "index.js" compatibility_date = "2026-08-19" [[kv_namespaces]] binding = "ATALHOS_KV" id = "131ca2da95c446d7a43067c8aa03429f"
