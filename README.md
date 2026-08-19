@@ -67,3 +67,5 @@ usadas como estão.
 Trigger primeiro deploy do worker
 <!-- deploy inicial do worker -->
 correção do formato wrangler.toml
+tentando denovo
+
