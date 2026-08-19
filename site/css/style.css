@@ -1,0 +1,218 @@
+:root {
+  /* Paleta: azul-ferrovia escuro + aço + um trilho de acento âmbar —
+     referência discreta a trens, sem virar tema literal. */
+  --azul-900: #0f1e2e;
+  --azul-800: #16293d;
+  --aco-100: #f4f6f8;
+  --aco-300: #d7dde3;
+  --aco-500: #8b98a5;
+  --texto: #16293d;
+  --texto-claro: #f4f6f8;
+  --ambar: #c8842c;
+  --erro: #b3421f;
+  --raio: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--aco-100);
+  color: var(--texto);
+  min-height: 100vh;
+}
+
+/* ---------- Tela de login ---------- */
+#tela-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--azul-900), var(--azul-800));
+}
+
+#form-login {
+  background: var(--aco-100);
+  padding: 40px 36px;
+  border-radius: var(--raio);
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+#form-login h1 { margin: 0; font-size: 20px; }
+.subtitulo { margin: 0 0 8px; color: var(--aco-500); font-size: 14px; }
+
+#form-login input {
+  padding: 10px 12px;
+  border: 1px solid var(--aco-300);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#form-login button,
+.layout-switch button,
+#form-novo-atalho button {
+  cursor: pointer;
+}
+
+#form-login button {
+  background: var(--azul-900);
+  color: var(--texto-claro);
+  border: none;
+  padding: 11px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.erro { color: var(--erro); font-size: 13px; margin: 0; min-height: 16px; }
+
+/* ---------- Cabeçalho do Hub ---------- */
+#tela-hub header {
+  background: var(--azul-900);
+  color: var(--texto-claro);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 3px solid var(--ambar); /* o "trilho" */
+}
+
+#tela-hub h1 { margin: 0; font-size: 17px; white-space: nowrap; }
+
+#busca {
+  flex: 1;
+  min-width: 180px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+}
+
+.layout-switch { display: flex; gap: 4px; background: rgba(255,255,255,.1); border-radius: 8px; padding: 3px; }
+.layout-switch button {
+  background: transparent;
+  border: none;
+  color: var(--texto-claro);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.layout-switch button.active { background: var(--ambar); }
+
+/* ---------- Formulário de novo atalho (só admin) ---------- */
+#form-novo-atalho {
+  display: flex;
+  gap: 8px;
+  padding: 14px 24px;
+  background: var(--aco-300);
+  flex-wrap: wrap;
+}
+#form-novo-atalho input {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 10px;
+  border: 1px solid var(--aco-500);
+  border-radius: 6px;
+}
+#form-novo-atalho button {
+  background: var(--ambar);
+  border: none;
+  color: var(--azul-900);
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+/* ---------- Lista de atalhos ---------- */
+#lista-atalhos {
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mensagem-vazia { color: var(--aco-500); text-align: center; padding: 60px 0; }
+
+.atalho-item { position: relative; }
+.atalho-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--texto);
+  height: 100%;
+}
+.atalho-excluir {
+  position: absolute;
+  border: none;
+  background: var(--erro);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* --- layout: grid (padrão) --- */
+body[data-layout="grid"] #lista-atalhos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 14px;
+}
+body[data-layout="grid"] .atalho-link { flex-direction: column; text-align: center; padding: 8px; border-radius: var(--raio); }
+body[data-layout="grid"] .atalho-link:hover { background: var(--aco-300); }
+body[data-layout="grid"] .atalho-icone { width: 34px; height: 34px; border-radius: 8px; margin-bottom: 6px; }
+body[data-layout="grid"] .atalho-nome { font-size: 11px; font-weight: 600; }
+body[data-layout="grid"] .atalho-dominio { display: none; }
+body[data-layout="grid"] .atalho-excluir { top: 0; right: 0; }
+
+/* --- layout: cards --- */
+body[data-layout="cards"] #lista-atalhos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+body[data-layout="cards"] .atalho-link {
+  flex-direction: column;
+  text-align: center;
+  background: white;
+  border: 1px solid var(--aco-300);
+  border-radius: var(--raio);
+  padding: 20px 10px;
+}
+body[data-layout="cards"] .atalho-link:hover { box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+body[data-layout="cards"] .atalho-icone { width: 44px; height: 44px; border-radius: 10px; margin-bottom: 10px; }
+body[data-layout="cards"] .atalho-nome { font-size: 13px; font-weight: 700; }
+body[data-layout="cards"] .atalho-dominio { display: none; }
+body[data-layout="cards"] .atalho-excluir { top: 8px; right: 8px; }
+
+/* --- layout: lista --- */
+body[data-layout="lista"] #lista-atalhos { display: flex; flex-direction: column; gap: 4px; }
+body[data-layout="lista"] .atalho-link {
+  gap: 12px;
+  background: white;
+  border: 1px solid var(--aco-300);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+body[data-layout="lista"] .atalho-link:hover { background: var(--aco-300); }
+body[data-layout="lista"] .atalho-icone { width: 22px; height: 22px; border-radius: 5px; flex-shrink: 0; }
+body[data-layout="lista"] .atalho-nome { font-size: 14px; font-weight: 600; flex-shrink: 0; }
+body[data-layout="lista"] .atalho-dominio { font-size: 12px; color: var(--aco-500); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-left: auto; }
+body[data-layout="lista"] .atalho-excluir { position: static; margin-left: 10px; }
+
+@media (max-width: 480px) {
+  #tela-hub header { padding: 12px 16px; }
+  #lista-atalhos { padding: 16px; }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal de Acessos</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Tela de login: usa a mesma rota que o RAD já expõe (decisão 2) -->
+<section id="tela-login">
+  <form id="form-login">
+    <h1>Portal de Acessos</h1>
+    <p class="subtitulo">Entre com seu login do RAD.</p>
+    <input type="text" id="login-usuario" placeholder="Login ou e-mail" required autocomplete="username">
+    <input type="password" id="login-senha" placeholder="Senha" required autocomplete="current-password">
+    <button type="submit">Entrar</button>
+    <p id="login-erro" class="erro"></p>
+  </form>
+</section>
+
+<!-- Hub em si: fica escondido até o login confirmar -->
+<section id="tela-hub" style="display:none;">
+  <header>
+    <h1>Portal de Acessos</h1>
+    <input type="search" id="busca" placeholder="Buscar por nome ou URL...">
+    <div class="layout-switch">
+      <button data-layout-btn="cards" title="Cards">▦</button>
+      <button data-layout-btn="grid" title="Grid">⊞</button>
+      <button data-layout-btn="lista" title="Lista">☰</button>
+    </div>
+  </header>
+
+  <!-- Só aparece pra quem tem perfil administrador (decisão 4) -->
+  <form id="form-novo-atalho" style="display:none;">
+    <input type="text" id="novo-nome" placeholder="Nome do sistema" required>
+    <input type="text" id="novo-url" placeholder="URL" required>
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <div id="lista-atalhos"></div>
+</section>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/kv.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
