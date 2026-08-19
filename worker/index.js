@@ -15,7 +15,7 @@ const CHAVE_KV = 'atalhos:lista';
 
 // Ajustar para o domínio real do Hub depois do deploy no Render (decisão 3)
 const ORIGENS_PERMITIDAS = [
-  'https://SEU-HUB.onrender.com', // TODO: trocar após o deploy do site/
+    'https://hub-atalhos.onrender.com',
 ];
 
 function corsHeaders(origin) {
